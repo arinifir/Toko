@@ -41,7 +41,7 @@
                                             <th>Hari</th>
                                             <th>Jam Buka</th>
                                             <th>Jam Tutup</th>
-                                            <th>Jadwal</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <?php 
@@ -50,7 +50,7 @@
                                     <tbody>
                                         <tr>
                                         <td>
-                                            <a href="<?php echo base_url('datainfo/ubahjadwal/'.$a->id); ?>" onclick="return confirm('Anda ingin mengubah jadwal??')" type="button" class="btn btn-warning fa fa-ban"></a>                                                
+                                            <a href="<?php echo base_url('datainfo/ubahstatus/'.$a->id); ?>" onclick="return confirm('Anda ingin mengubah status??')" type="button" class="btn btn-warning fa fa-ban"></a>                                                
                                             <button type="button" class="btn btn-primary fa fa-edit" data-toggle="modal" data-target="#mediumModal2<?php echo $a->id;?>"></button> 
                                             <a href="<?php echo base_url('datainfo/hapus/'.$a->id); ?>" onclick="return confirm('Anda yakin ingin menghapus data ini?')" type="button" class="btn btn-danger fa fa-trash"></a>     
                                         </td>
@@ -59,10 +59,10 @@
                                         <td><?php echo $a->jam_buka ?></td>
                                         <td><?php echo $a->jam_tutup ?></td>
                                         <?php
-                                        if($a->jadwal="Open"){
-                                            echo "<td><button class='btn btn-outline-success btn-sm' disabled>$a->jadwal</button></td>";
+                                        if($a->status == "Open"){
+                                            echo "<td><button class='btn btn-outline-success btn-sm' disabled>Open</button></td>";
                                         }else{
-                                            echo "<td><button class='btn btn-outline-danger btn-sm' disabled>$a->jadwal</button></td>";
+                                            echo "<td><button class='btn btn-outline-danger btn-sm' disabled>Closed</button></td>";
                                         }
                                         ?>
                                             
@@ -120,12 +120,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class=" form-control-label">Jadwal</label>
+                                <label class=" form-control-label">Status</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-check-square-o"></i></div>
-                                    <select class="form-control" name="jadwal">
-                                        <option name="jadwal" value="Open">Open</option>
-                                        <option name="jadwal" value="Closed">Closed</option>
+                                    <select class="form-control" name="status">
+                                        <option name="status" value="Open">Open</option>
+                                        <option name="status" value="Closed">Closed</option>
                                     </select>
                                 </div>
                             </div>

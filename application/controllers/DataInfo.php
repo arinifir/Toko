@@ -20,13 +20,13 @@ class DataInfo extends CI_Controller{
         $hari = $this->input->post('hari');
         $jam_buka = $this->input->post('jam_buka');
         $jam_tutup = $this->input->post('jam_tutup');
-        $jadwal = $this->input->post('jadwal');
+        $status = $this->input->post('status');
 
         $data = array(
             'hari' => $hari,
             'jam_buka' => $jam_buka,
             'jam_tutup' => $jam_tutup,
-            'jadwal' => $jadwal
+            'status' => $status
             );
         $this->m_info->input_data($data,'info_buka');
         redirect('datainfo');    
@@ -36,7 +36,7 @@ class DataInfo extends CI_Controller{
         $hari = $this->input->post('hari');
         $jam_buka = $this->input->post('jam_buka');
         $jam_tutup = $this->input->post('jam_tutup');
-        $jadwal = $this->input->post('jadwal');
+        $status = $this->input->post('status');
 
         $data = array(
             'hari' => $hari,
@@ -56,25 +56,22 @@ class DataInfo extends CI_Controller{
 		$this->m_info->hapus_data($where,'info_buka');
 		redirect('datainfo');
     }
-    function ubahjadwal($id){
-        $jadwalc = $this->input->post("Closed");
-        $jadwalo = $this->input->post("Open");
+    function ubahstatus($id){
+        $params = $this->db->get_where('info_buka', ['status' => 'Open'])->result_array();
 
-        if($data = array('jadwal' => 'Open')){
+        if($params){
             $data = array(
-                'jadwal' => $jadwalc
+                'status' => 'Closed'
                 );
 
-                $where = array('id' => $id);
-                $this->m_info->update_data($where,$data,'info_buka');
-                redirect('datainfo');
         }else{
             $data = array(
-                'jadwal' => 'Open'
+                'status' => 'Open'
                 );
-                $where = array('id' => $id);
-                $this->m_info->update_data($where,$data,'info_buka');
-                redirect('datainfo');
+
         }
+        $where = array('id' => $id);
+        $this->m_info->update_data($where,$data,'info_buka');
+        redirect('datainfo');
     }
 }
