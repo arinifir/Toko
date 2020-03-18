@@ -31,6 +31,9 @@
                             </div>
                             <div class="card-body" align="center">
                             <hr>
+                            <tr><td align="left"><strong>Hari ==></strong></td></tr>
+                            <tr align="right"><td><strong>Jam Buka</strong></td><td> - </td><td><strong>Jam Tutup</strong></td></tr>
+                            <br><br>
                                     <?php 
                                         foreach($info_buka as $a){ 
                                     ?>

@@ -25,20 +25,27 @@ class DataInfo extends CI_Controller{
 
     }
     function tambah_aksi(){
-        
         $hari = $this->input->post('hari');
         $jam_buka = $this->input->post('jam_buka');
         $jam_tutup = $this->input->post('jam_tutup');
         $status = $this->input->post('status');
+        $sql = $this->db->query("SELECT hari FROM info_buka WHERE hari='$hari'");
+        $cek = $sql->num_rows();
+        if($cek > 0){
+            redirect('datainfo'); 
+        }else{
+            $data = array(
+                'hari' => $hari,
+                'jam_buka' => $jam_buka,
+                'jam_tutup' => $jam_tutup,
+                'status' => $status
+                );
+            $this->m_info->input_data($data,'info_buka');
+            redirect('datainfo'); 
+        }
+        
 
-        $data = array(
-            'hari' => $hari,
-            'jam_buka' => $jam_buka,
-            'jam_tutup' => $jam_tutup,
-            'status' => $status
-            );
-        $this->m_info->input_data($data,'info_buka');
-        redirect('datainfo');    
+   
     }
     function update(){
         $id = $this->input->post('id');
