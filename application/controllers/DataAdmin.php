@@ -9,10 +9,19 @@ class DataAdmin extends CI_Controller{
                 $this->load->library('form_validation');
 	}
     public function index(){
-        $data['admin'] = $this->m_admin->tampil_data()->result();
-        $this->load->view('templates/hearder');
-        $this->load->view('admin/dadmin', $data);
-        $this->load->view('templates/footer');
+        if($this->m_admin->logged_id())
+        {
+            $data['admin'] = $this->m_admin->tampil_data()->result();
+            $this->load->view('templates/hearder');
+            $this->load->view('admin/dadmin', $data);
+            $this->load->view('templates/footer');
+
+        }else{
+
+            //jika session belum terdaftar, maka redirect ke halaman login
+            redirect("/login");
+
+        }
 
     }
     function tambah_aksi(){

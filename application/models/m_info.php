@@ -22,4 +22,8 @@ class M_info extends CI_Model{
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
+	function logged_id()
+    {
+        return $this->session->userdata('id');
+    }
 }

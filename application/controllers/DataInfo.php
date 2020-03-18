@@ -9,10 +9,19 @@ class DataInfo extends CI_Controller{
                 $this->load->library('form_validation');
 	}
     public function index(){
-        $data['info_buka'] = $this->m_info->tampil_data()->result();
-        $this->load->view('templates/hearder');
-        $this->load->view('admin/dinfo', $data);
-        $this->load->view('templates/footer');
+        if($this->m_info->logged_id())
+        {
+                $data['info_buka'] = $this->m_info->tampil_data()->result();
+                $this->load->view('templates/hearder');
+                $this->load->view('admin/dinfo', $data);
+                $this->load->view('templates/footer');
+
+        }else{
+
+                //jika session belum terdaftar, maka redirect ke halaman login
+                redirect("/login");
+
+    }
 
     }
     function tambah_aksi(){
@@ -41,7 +50,8 @@ class DataInfo extends CI_Controller{
         $data = array(
             'hari' => $hari,
             'jam_buka' => $jam_buka,
-            'jam_tutup' => $jam_tutup
+            'jam_tutup' => $jam_tutup,
+            'status' => $status
             );
  
         $where = array(
@@ -56,22 +66,24 @@ class DataInfo extends CI_Controller{
 		$this->m_info->hapus_data($where,'info_buka');
 		redirect('datainfo');
     }
-    function ubahstatus($id){
-        $params = $this->db->get_where('info_buka', ['status' => 'Open'])->result_array();
+    function buka($id){
 
-        if($params){
-            $data = array(
-                'status' => 'Closed'
-                );
-
-        }else{
             $data = array(
                 'status' => 'Open'
                 );
 
-        }
         $where = array('id' => $id);
         $this->m_info->update_data($where,$data,'info_buka');
         redirect('datainfo');
     }
+    function tutup($id){
+
+        $data = array(
+            'status' => 'Closed'
+            );
+
+    $where = array('id' => $id);
+    $this->m_info->update_data($where,$data,'info_buka');
+    redirect('datainfo');
+}
 }

@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dashboard Korean Food</title>
+    <title>Korean Food</title>
     <meta name="description" content="Dashboard">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -34,19 +34,14 @@
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
+                    <li class="menu-title">Web</li><!-- /.menu-title -->
                     <li>
-                        <a href="<?php echo base_url() ?>homeadmin"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
-                    </li>
-                    <li class="menu-title">Data</li><!-- /.menu-title -->
-                    <li>
-                        <a href="<?php echo base_url() ?>dataadmin"><i class="menu-icon fa fa-user"></i>Data Admin </a>
+                        <a href="menu"><i class="menu-icon fa fa-list"></i>Menu </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url() ?>datamenu"><i class="menu-icon fa fa-list"></i>Data Menu </a>
+                        <a href="info"><i class="menu-icon fa fa-info"></i>Info Buka </a>
                     </li>
-                    <li>
-                        <a href="<?php echo base_url() ?>datainfo"><i class="menu-icon fa fa-info"></i>Info Buka </a>
-                    </li>
+                    
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -61,7 +56,7 @@
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="<?php echo base_url() ?>homeadmin"><strong>Dashboard Korean Food</strong></a>
+                    <a class="navbar-brand" href="menu"><strong>Korean Food</strong></a>
                     <a class="navbar-brand hidden" href="./"><img src="<?php echo base_url();?>/assets_admin/images/logo2.png" alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
@@ -70,12 +65,10 @@
                 <div class="header-menu">
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <b><?php echo  $this->session->userdata("username") ?> </b>
                             <img class="user-avatar rounded-circle" src="<?php echo base_url();?>/assets_admin/images/user4.png" alt="User Avatar">
                         </a>
-
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="<?php echo base_url() ?>/homeadmin/logout"><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="nav-link" href="login"><i class="fa fa-user"></i>Login</a>
                         </div>
                     </div>
                 </div>

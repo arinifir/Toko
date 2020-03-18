@@ -14,7 +14,7 @@
                                 <ol class="breadcrumb text-right">
                                     <li><a href="#">Dashboard</a></li>
                                     <li><a href="#">Tables</a></li>
-                                    <li class="active">Data Admin</li>
+                                    <li class="active">Info Buka</li>
                                 </ol>
                             </div>
                         </div>
@@ -26,7 +26,6 @@
         <div class="content">
             <div class="animated fadeIn">
                 <div class="row">
-
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
@@ -50,19 +49,20 @@
                                     <tbody>
                                         <tr>
                                         <td>
-                                            <a href="<?php echo base_url('datainfo/ubahstatus/'.$a->id); ?>" onclick="return confirm('Anda ingin mengubah status??')" type="button" class="btn btn-warning fa fa-ban"></a>                                                
-                                            <button type="button" class="btn btn-primary fa fa-edit" data-toggle="modal" data-target="#mediumModal2<?php echo $a->id;?>"></button> 
-                                            <a href="<?php echo base_url('datainfo/hapus/'.$a->id); ?>" onclick="return confirm('Anda yakin ingin menghapus data ini?')" type="button" class="btn btn-danger fa fa-trash"></a>     
+                                            <button title="Edit" type="button" class="btn btn-primary fa fa-edit" data-toggle="modal" data-target="#mediumModal2<?php echo $a->id;?>"></button> 
+                                            <a title="Hapus" href="<?php echo base_url('datainfo/hapus/'.$a->id); ?>" onclick="return confirm('Anda yakin ingin menghapus data ini?')" type="button" class="btn btn-danger fa fa-trash"></a>     
                                         </td>
                                         <td><?php echo $a->id ?></td>
                                         <td><?php echo $a->hari ?></td>
                                         <td><?php echo $a->jam_buka ?></td>
                                         <td><?php echo $a->jam_tutup ?></td>
                                         <?php
-                                        if($a->status == "Open"){
-                                            echo "<td><button class='btn btn-outline-success btn-sm' disabled>Open</button></td>";
-                                        }else{
-                                            echo "<td><button class='btn btn-outline-danger btn-sm' disabled>Closed</button></td>";
+                                        if($a->status == "Open"){?>
+                                            <td><a type="button" href="<?php echo base_url('datainfo/tutup/'.$a->id); ?>" onclick="return confirm('Anda ingin mengubah status??')" class="btn btn-outline-success btn-sm" >Open</a></td>
+                                        <?php
+                                        }else if($a->status == "Closed"){?>
+                                            <td><a type="button" href="<?php echo base_url('datainfo/buka/'.$a->id); ?>" onclick="return confirm('Anda ingin mengubah status??')" class="btn btn-outline-danger btn-sm">Closed</a></td>
+                                        <?php
                                         }
                                         ?>
                                             
@@ -73,8 +73,6 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
@@ -183,6 +181,17 @@
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
                                     <input type="time" class="form-control" name="jam_tutup" value="<?php echo $a->jam_tutup;?>" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class=" form-control-label">Status</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-check-square-o"></i></div>
+                                    <select class="form-control" name="status">
+                                        <option name="status" value="<?php echo $a->status;?>"><?php echo $a->status;?></option>
+                                        <option name="status" value="Open">Open</option>
+                                        <option name="status" value="Closed">Closed</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="modal-footer">

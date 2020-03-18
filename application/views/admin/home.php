@@ -1,44 +1,15 @@
+        <?php 
+
+      
+
+
+        ?>
         <!-- Content -->
         <div class="content">
             <!-- Animated -->
             <div class="animated fadeIn">
                 <!-- Widgets  -->
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-1">
-                                        <i class="pe-7s-cash"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text">$<span class="count">23569</span></div>
-                                            <div class="stat-heading">Revenue</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-2">
-                                        <i class="pe-7s-cart"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">3435</span></div>
-                                            <div class="stat-heading">Sales</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
@@ -49,8 +20,8 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">349</span></div>
-                                            <div class="stat-heading">Templates</div>
+                                            <div class="stat-text"><span class="count"><?php foreach($mn as $m): echo htmlentities($m->jmlmn, ENT_QUOTES, 'UTF-8'); endforeach;?></span></div>
+                                            <div class="stat-heading">Menu</div>
                                         </div>
                                     </div>
                                 </div>
@@ -67,8 +38,8 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">2986</span></div>
-                                            <div class="stat-heading">Clients</div>
+                                            <div class="stat-text"><span class="count"><?php foreach($ad as $a): echo htmlentities($a->jmlad, ENT_QUOTES, 'UTF-8'); endforeach;?></span></div>
+                                            <div class="stat-heading">Admin</div>
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +57,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="card-body">
-                                        <h4 align="center" class="box-title">Selamat Datang </h4>
+                                        <h4 align="center" class="box-title">Selamat Datang <b><?php echo $this->session->userdata("username") ?></b></h4>
                                     </div>
                                 </div>
                             </div> <!-- /.row -->
