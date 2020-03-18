@@ -9,7 +9,7 @@ adalah halaman awal dari web tersebut. Di halaman ini, kita bisa melihat menu-me
 adalah halaman yang menampilkan jadwal restoran. Kapan buka dan kapan tutup. Jika status **“Open”** maka akan ditampilkan jam buka dan jam tutup nya. Sedangkan jika status **“Closed”** makan akan ditampilkan status tersebut.
 ### Login Admin
 Jika mempunyai akun sebagai admin klik ikon di kanan atas lalu klik **login**, maka akan diarahkan ke **halaman Login** untuk Admin. Jika kita menekan tombol **Login** tanpa mengisi inputan, maka akan muncul alert perigatan. Dan jika username atau password yang kita masukkan **tidak valid**, akan muncul alert. Coba login masukkan username **“rinrin”** dan password **“arini”** yang sudah terdaftar di database.
-### Halaman Admimn
+### Halaman Admin
 Setelah **berhasil login**, akan muncul tampilan **halaman admin** yang berisi fitur dashboard, data admin, data menu, dan info buka.
 ### Halaman Data Admin
 Buka halaman data admin, di sini kita bisa melihat, menambahkan, mengubah, dan menghapus data admin. Klik **“+ Tambah Data”** dan akan muncul modal tambah data, masukkan data yang akan ditambah. Klik ikon **Edit** Data yang berwarna **biru**, akan muncul modal untuk mengubah data, masukkan data yang akan diubah. Klik ikon **Hapus** Data yang berwarna **merah**, akan muncul **alert confirm** untuk menghapus data, klik **ok** jika ingin menghapus data.
@@ -20,6 +20,8 @@ Buka halaman info buka, di sini kita bisa melihat, menambahkan, mengubah, dan me
 ### Logout
 Jika ingin keluar dari halaman admin klik ikon di kanan atas lali klik **logout**, maka anda akan diarahkan ke **halaman awal**. Jika sudah klik **logout** maka **kita tidak akan bisa lagi ke halaman sebelumnya** setelah menekan tombol **Back**. Dan jika menekan tombol **Back** setelah Logout maka otomatis akan diarahkan ke **halaman login** admin lagi.
  
+
+
 
 # ElaAdmin HTML5 Admin Dashboard Template
 **ElaAdmin** is a responsive Bootstrap 4 Admin Template. It provides you with a collection of ready to use code snippets and utilities, custom pages, loads of charts, dashboard variations, a collection of applications and some useful widgets. Preview of this awesome admin template available here: https://colorlib.com/polygon/elaadmin/index.html
